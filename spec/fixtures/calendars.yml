@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  external_id: MyString
+  name: MyString
+  time_zone: MyString
+
+two:
+  external_id: MyString
+  name: MyString
+  time_zone: MyString

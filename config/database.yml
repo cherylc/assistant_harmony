@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: assistantharmony_development
+  pool: 5
+  username: chad
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: assistantharmony_test
+  pool: 5
+  username: chad
+  password:

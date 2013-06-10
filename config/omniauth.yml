@@ -1,0 +1,8 @@
+development:
+  :google_oauth2:
+    :key: 501926122381.apps.googleusercontent.com
+    :secret: sRTVKKPYyV0bHtDcoD59aA8S
+    :extra:
+      :scope: "userinfo.email,userinfo.profile,calendar"
+      :approval_prompt: "force"
+    

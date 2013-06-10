@@ -1,0 +1,18 @@
+%h1 Assignments#index
+%p Find me in app/views/assignments/index.html.haml
+
+= form_for :assignment, url: profile_assignments_path, html: {class: 'form-inline'} do |f|
+  = f.text_field :recipient, placeholder: "Assignment's email address"
+  = f.submit "Create Assignment", class: 'btn'
+
+%table.assignments.table
+  %tbody
+    - @assignments.each do |assignment|
+      %tr.assignment
+        %td.recipient
+          = assignment.recipients.map(&:email).join(',')
+        %td.action
+          = link_to :show, profile_assignment_path(assignment)
+          = link_to :schedule, schedule_profile_assignment_path(id: assignment)
+          = link_to :delete, profile_assignment_path(assignment), method: :delete
+

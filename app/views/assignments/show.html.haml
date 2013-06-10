@@ -1,0 +1,30 @@
+%h1 Assignments#show
+%p Find me in app/views/assignments/show.html.haml
+
+.assignment
+  %span.recipients
+    = @assignment.recipients.map(&:email).join(',')
+  %span.schedule_start
+    = @assignment.schedule_start_at.in_time_zone(@zone).to_s(:long)
+  %span
+    = link_to :schedule, schedule_profile_assignment_path(@assignment, amount: 10)
+
+  %table.availability.table
+    %thead
+      %tr
+        %th Time
+        %th Status
+        %th Actions
+
+    %tbody
+      - if @meetings.present?
+        - iterate(@meetings) do |time|
+          %tr.day
+            - if meeting = matched(@meetings, @zone, time)
+              %td= meeting.display_times
+              %td= meeting.state
+              %td
+                = reject_link_for(meeting)
+                = schedule_link_for(meeting)
+            - else
+              %td{colspan: 3}= time.to_s(:long)

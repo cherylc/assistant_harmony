@@ -1,0 +1,4 @@
+%h1 Register for AssistantHarmony
+
+- @providers.each do |provider|
+  = link_to provider, auth_signin(provider)

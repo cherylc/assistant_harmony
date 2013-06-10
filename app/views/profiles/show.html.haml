@@ -1,0 +1,11 @@
+%h1 Profiles#show
+%p Find me in app/views/profiles/show.html.haml
+
+= flash[:notice] if flash[:notice]
+
+%table.calendars.table
+  - @user.calendars.each do |calendar|
+    %tr.calendar
+      %td.name{"data-id" => calendar.id, "data-external-id" => calendar.external_id}= calendar.name
+      %td.action= subscribe_to calendar
+
